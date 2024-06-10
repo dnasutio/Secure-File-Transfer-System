@@ -25,4 +25,4 @@ Now you can use the client UI to make requests to the server.
 2. Login as the user you just created.
 3. Create a file by filling in the necessary form information followed by pressing Submit.
 4. Delete the file by clicking the delete button on the file.
-5. Download the file by clickin the download button on the file.
+5. Download the file by clicking the download button on the file.
