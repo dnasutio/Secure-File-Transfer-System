@@ -47,7 +47,7 @@ Now you can use the client UI to make requests to the server.
 
 ## INTUTION
 ### Program Flow
-```
+
 1. User passes credentials to frontend,
 2. frontend passes credentials to backend,
 3. backend grants token based on the credentials,
@@ -55,33 +55,32 @@ Now you can use the client UI to make requests to the server.
 5. Access token is used for requests, refresh token is used to refresh the access token
 6. Frontend stores both tokens (localStorage)
 7. If access token expires then frontend submits refresh token to a specific route on the backend and if the token is valid a new access token is passed to the frontend
-   a. REASON FOR REFRESH: Access tokens should expire fast because if the access token is leaked then the unauthorized party cannot maintain access on the account.
-```
+   - REASON FOR REFRESH: Access tokens should expire fast because if the access token is leaked then the unauthorized party cannot maintain access on the account.
+
 
 ### JWT
-```
+
 Acts as the permissions or authentication every time we access a website.
 Every time the frontend makes a request to the backend, the backend:
 - needs to know who we are,
 - what we have permissions to do
 
-We include a token with every request to the backend. Then it can be decoded and understood to represent a certain set of permissions.
+We include a token with every request to the backend. Then it can be decoded and understood to represent a certain set of permissions.\
 For example, user dylan signs in, user is granted a token, token is then used for all future requests to tell backend who is interacting with it and what permissions they have.
-```
+
 
 ### Interceptor with axios in api.js
 
-```
-Interceptor: Intercepts requests frontend sends and automatically adds the correct headers so that we do not need to write them manually
 
+Interceptor: Intercepts requests frontend sends and automatically adds the correct headers so that we do not need to write them manually.\
 With axios interceptor anytime the frontend sends a request, it checks if you have an access token and if you do it will automatically add it to the request.
-```
+
 
 ### Protected Route Component
-```
+
 Wrapper for protected route: need auth token before being able to access the route.
 Theoretically could be bypassed but not on the frontend.
 This prevents unauthorized users from accessing the route until they have logged in.
-```
+
 
 
