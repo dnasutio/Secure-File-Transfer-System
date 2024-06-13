@@ -19,6 +19,7 @@ class UserSerializer(serializers.ModelSerializer):
 class FileSerializer(serializers.ModelSerializer):
     class Meta:
         model = File
+        # Don't include encrypted_symmetric_key and iv because it is not good to expose them to the API the client will use
         fields = ["id", "title", "content", "created_at", "updated_at", "uploaded_by", "file", "shared_with"]
         # Can read who uploaded_by is, cannot write who uploaded_by is (prevents files from accidently unlinking from users)
         read_only_fields = ['uploaded_by', 'created_at', 'updated_at']

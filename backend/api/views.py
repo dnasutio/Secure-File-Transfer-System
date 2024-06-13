@@ -39,15 +39,18 @@ class FileDownload(generics.RetrieveAPIView):
         file_path = instance.file.path
 
         try:
+            # Get file
             with open(file_path, 'rb') as f:
                 encrypted_file_data = f.read()
 
+            # Decrypt file
             decrypted_file_data = decrypt_file(
                 encrypted_file_data,
                 instance.encrypted_symmetric_key,
                 instance.iv
             )
 
+            # Send decrypted file to client
             response = HttpResponse(decrypted_file_data, content_type='application/octet-stream')
             response['Content-Disposition'] = f'attachment; filename="{os.path.basename(instance.file.name)}"'
             return response

@@ -14,6 +14,7 @@ function File({ file, onDelete }) {
       });
 
       console.log(response.headers)
+      // Get the file name from the header
       const contentDisposition = response.headers["content-disposition"];
       console.log("Content-Disposition:", contentDisposition);
       const filenameRegex = /filename=["']?([^"']+)/;
