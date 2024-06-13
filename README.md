@@ -82,5 +82,17 @@ Wrapper for protected route: need auth token before being able to access the rou
 Theoretically could be bypassed but not on the frontend.
 This prevents unauthorized users from accessing the route until they have logged in.
 
+### AES Encryption and RSA Encryption
+1. AES Encryption
+- When the file arrives on the server encrypt it using a AES key.
+- Store the key in the database.
+2. RSA Encryption
+- Encrypt the AES key using the RSA public key on the server.
+3. Decryption
+- When the client sends a request to download the file decrypt the AES key with the RSA private key.
+- Use the AES key to decrypt the file
+- Send the file in the response to the client.
+
+SECURE DATA AT REST
 
 
