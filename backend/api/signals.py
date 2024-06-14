@@ -12,7 +12,7 @@ def encrypt_file_post_save(sender, instance, **kwargs):
     if not processing_encryption:
         processing_encryption = True
         try:
-            # Encrypt the file content after it has been saved
+            # Encrypt the file content before it has been saved
             file_path = instance.file.path
             with open(file_path, "rb") as f:
                 file_data = f.read()
